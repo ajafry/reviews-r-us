@@ -1,6 +1,9 @@
 from customer import Customer
 from order import Order
 
+VIP_CUSTOMER_ORDER_THRESHOLD = 5
+LARGE_ORDER_PRICE_THRESHOLD = 100.0
+
 def main():
     # Create a customer
     customer = Customer(customer_id="C001", name="John Doe", address="123 Elm St")
@@ -30,13 +33,13 @@ def main():
     
     # Display customer information
     print(customer)
-    if (customer.get_order_count() > 5):
+    if (customer.get_order_count() > VIP_CUSTOMER_ORDER_THRESHOLD):
         print("!!! VIP Customer !!!")
     
     # List all orders for the customer
     for order in customer.list_all_orders():
         print(order)
-        if (order.total_price > 100):
+        if (order.total_price > LARGE_ORDER_PRICE_THRESHOLD):
             print("!!! That's a big order !!!")
     
     # Display total number of orders
