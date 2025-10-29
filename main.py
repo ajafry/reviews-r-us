@@ -30,10 +30,14 @@ def main():
     
     # Display customer information
     print(customer)
+    if (customer.get_order_count() > 5):
+        print("!!! VIP Customer !!!")
     
     # List all orders for the customer
     for order in customer.list_all_orders():
         print(order)
+        if (order.total_price > 100):
+            print("!!! That's a big order !!!")
     
     # Display total number of orders
     print(f"Total Orders: {customer.get_order_count()}")
